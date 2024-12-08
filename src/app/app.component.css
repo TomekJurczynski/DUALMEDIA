@@ -41,3 +41,15 @@ input[type="checkbox"] {
 .modal-content {
   width: 100%;
 }
+
+.readonly,
+input[id="is-readonly"] {
+  position: absolute;
+  top: 0;
+  left: 90%;
+  width: 8%;
+}
+
+input[id="is-readonly"] {
+  margin: 5px 0;
+}

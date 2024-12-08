@@ -12,6 +12,15 @@
       class="searchBarInput"
     />
   </form>
+  <div class="readonly">
+    <label for="is-readonly">READONLY MODE: </label>
+    <input
+      class="readonly"
+      id="is-readonly"
+      type="checkbox"
+      (change)="setReadOnlyMode()"
+    />
+  </div>
 
   <table class="table table-hover">
     <thead>
@@ -24,6 +33,20 @@
       </tr>
     </thead>
     <tbody>
+      <!-- -- HTML PART USED TO WORK ON THE TEST API -- -->
+      <!-- @for(data of jsonPlaceholderData; track data.id) {
+      <tr
+        (click)="openModal(data)"
+        data-bs-toggle="modal"
+        data-bs-target="#staticBackdrop"
+      >
+        <th scope="row">{{ data.id }}</th>
+        <td>{{ data.userId }}</td>
+        <td>{{ data.title }}</td>
+        <td>{{ data.completed }}</td>
+        <td></td>
+      </tr>
+      } -->
       @for(data of data; track data.id) {
       <tr
         (click)="openModal(data)"
@@ -49,6 +72,7 @@
 </div>
 
 <div
+  *ngxPermissionsOnly="'OPEN'"
   class="modal fade"
   id="staticBackdrop"
   data-bs-backdrop="static"
